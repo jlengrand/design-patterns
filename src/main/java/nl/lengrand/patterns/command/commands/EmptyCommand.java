@@ -1,4 +1,4 @@
-package nl.lengrand.patterns.command;
+package nl.lengrand.patterns.command.commands;
 
 public class EmptyCommand implements Command{
     @Override

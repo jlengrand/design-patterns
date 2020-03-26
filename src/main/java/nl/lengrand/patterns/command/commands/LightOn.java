@@ -1,6 +1,6 @@
-package nl.lengrand.patterns.command;
+package nl.lengrand.patterns.command.commands;
 
-import nl.lengrand.patterns.command.api.Light;
+import nl.lengrand.patterns.command.apis.Light;
 
 public class LightOn implements Command {
 

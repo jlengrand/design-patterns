@@ -1,4 +1,4 @@
-package nl.lengrand.patterns.command.api;
+package nl.lengrand.patterns.command.apis;
 
 public class Light {
 

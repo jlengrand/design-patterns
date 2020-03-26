@@ -1,9 +1,12 @@
 package nl.lengrand.patterns.command;
 
-import nl.lengrand.patterns.command.api.Light;
+import nl.lengrand.patterns.command.apis.Light;
+import nl.lengrand.patterns.command.commands.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RemoteControl {
 
@@ -15,6 +18,7 @@ public class RemoteControl {
     }
 
     public void pressCommand(String commandName){
+        System.out.println("---");
         Command command = commands.getOrDefault(commandName, new EmptyCommand());
         command.execute();
         lastCommand = command;
@@ -37,13 +41,24 @@ public class RemoteControl {
 
         rc.addCommand("BathroomLightOn", new LightOn(new Light("Bathroom")));
         rc.addCommand("BathroomLightOff", new LightOff(new Light("Bathroom")));
+        rc.addCommand("SpotifyOn", new SpotifyOn());
+        rc.addCommand("SpotifyOff", new SpotifyOff());
+
+        rc.addCommand("ArrivedHomeSequence", new MetaCommand(
+                Stream.of(new GarageDoorOpen(), new SpotifyOn(), new LightOn(new Light("Garage"))).collect(Collectors.toList())
+        ));
+
+        rc.addCommand("LeftHomeSequence", new MetaCommand(
+                Stream.of(new GarageDoorClose(), new SpotifyOff(), new LightOff(new Light("Garage"))).collect(Collectors.toList())
+        ));
 
         System.out.println(rc);
         rc.pressCommand("BathroomLightOn");
-        rc.undo();
         rc.pressCommand("BathroomLightOff");
-        rc.undo();
+        rc.pressCommand("SpotifyOn");
         rc.undo();
         rc.pressCommand("Null check");
+        rc.pressCommand("ArrivedHomeSequence");
+        rc.pressCommand("LeftHomeSequence");
     }
 }
