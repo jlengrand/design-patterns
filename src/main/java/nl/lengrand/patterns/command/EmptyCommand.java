@@ -5,4 +5,9 @@ public class EmptyCommand implements Command{
     public void execute() {
         System.out.println("No Command");
     }
+
+    @Override
+    public void undo() {
+        System.out.println("No Command undo");
+    }
 }

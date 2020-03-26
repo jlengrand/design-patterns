@@ -8,13 +8,20 @@ import java.util.Map;
 public class RemoteControl {
 
     private Map<String, Command> commands = new HashMap<>();
+    private Command lastCommand = new EmptyCommand();
 
     public void addCommand(String commandName, Command command){
         commands.put(commandName, command);
     }
 
     public void pressCommand(String commandName){
-        commands.getOrDefault(commandName, new EmptyCommand()).execute();
+        Command command = commands.getOrDefault(commandName, new EmptyCommand());
+        command.execute();
+        lastCommand = command;
+    }
+
+    public void undo(){
+        lastCommand.undo();
     }
 
     @Override
@@ -33,6 +40,10 @@ public class RemoteControl {
 
         System.out.println(rc);
         rc.pressCommand("BathroomLightOn");
+        rc.undo();
+        rc.pressCommand("BathroomLightOff");
+        rc.undo();
+        rc.undo();
         rc.pressCommand("Null check");
     }
 }
