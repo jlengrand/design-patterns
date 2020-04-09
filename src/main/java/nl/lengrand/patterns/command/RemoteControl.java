@@ -8,6 +8,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+    This class demos a simple 'Remote Control' that allows you to set buttons with a label and couple them with an action.
+    Pressing the button will then call the given action
+ */
 public class RemoteControl {
 
     private Map<String, Command> commands = new HashMap<>();
