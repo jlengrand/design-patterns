@@ -5,6 +5,7 @@ import nl.lengrand.patterns.command.commands.Command;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -20,21 +21,23 @@ public class ProcessingQueueExample {
 
     public static void main(String[] args) throws InterruptedException {
         Queue<Command> queue = new LinkedList<>();
-        int numberGenerators = 5;
-
 
         List<CommandGenerator> generators = IntStream.range(0, 5)
                 .mapToObj(i -> new CommandGenerator(i + 1, queue, getRandomInterval()))
                 .collect(Collectors.toList());
 
         generators.forEach(g -> g.generate());
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 
         CommandProcessor processor = new CommandProcessor(queue);
-        processor.start();
+        Thread processorThread = new Thread(processor);
+        System.out.println("Starting");
+        processorThread.start();
 
+        Thread.sleep(200);
         generators.forEach(g -> g.stop());
     }
+
 
     /*
     Returns a random integer between 1 and 1000 (representing between 1 and 1000 ms interval)

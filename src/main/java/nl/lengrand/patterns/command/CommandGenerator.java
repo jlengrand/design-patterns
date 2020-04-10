@@ -36,7 +36,7 @@ public class CommandGenerator {
     private class CommandTimerTask extends TimerTask{
 
         private int generatorId;
-        private Queue queue;
+        private volatile Queue queue;
 
         public CommandTimerTask(int id, Queue queue){
             this.queue = queue;
