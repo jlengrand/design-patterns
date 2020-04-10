@@ -4,7 +4,7 @@ import nl.lengrand.patterns.command.apis.Light;
 
 public class LightOn implements Command {
 
-    private Light light;
+    private final Light light;
 
     public LightOn(Light light) {
         this.light = light;

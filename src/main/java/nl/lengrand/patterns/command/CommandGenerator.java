@@ -12,10 +12,10 @@ import java.util.UUID;
  */
 public class CommandGenerator {
 
-    private Queue queue;
-    private int id;
-    private int intervalMs;
-    private Timer timer;
+    private final Queue queue;
+    private final int id;
+    private final int intervalMs;
+    private final Timer timer;
 
     public CommandGenerator(int id, Queue queue, int intervalMs){
         this.queue = queue;
@@ -35,8 +35,8 @@ public class CommandGenerator {
 
     private class CommandTimerTask extends TimerTask{
 
-        private int generatorId;
-        private volatile Queue queue;
+        private final int generatorId;
+        private final Queue queue;
 
         public CommandTimerTask(int id, Queue queue){
             this.queue = queue;

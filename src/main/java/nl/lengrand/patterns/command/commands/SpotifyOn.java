@@ -4,7 +4,7 @@ import nl.lengrand.patterns.command.apis.Spotify;
 
 public class SpotifyOn implements Command{
 
-    private Spotify spotify = new Spotify();
+    private final Spotify spotify = new Spotify();
 
     @Override
     public void execute() {

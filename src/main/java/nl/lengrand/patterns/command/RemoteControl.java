@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  */
 public class RemoteControl {
 
-    private Map<String, Command> commands = new HashMap<>();
+    private final Map<String, Command> commands = new HashMap<>();
     private Command lastCommand = new EmptyCommand();
 
     public void addCommand(String commandName, Command command){

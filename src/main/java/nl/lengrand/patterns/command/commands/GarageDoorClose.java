@@ -4,7 +4,7 @@ import nl.lengrand.patterns.command.apis.GarageDoor;
 
 public class GarageDoorClose implements Command{
 
-    private GarageDoor garageDoor = new GarageDoor();
+    private final GarageDoor garageDoor = new GarageDoor();
 
     @Override
     public void execute() {

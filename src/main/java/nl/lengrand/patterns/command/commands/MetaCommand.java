@@ -4,7 +4,7 @@ import java.util.List;
 
 public class MetaCommand implements Command{
 
-    List<Command> commands;
+    final List<Command> commands;
 
     public MetaCommand(List<Command> commands){
         this.commands = commands;

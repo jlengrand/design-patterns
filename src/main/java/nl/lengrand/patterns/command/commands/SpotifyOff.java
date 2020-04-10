@@ -4,7 +4,7 @@ import nl.lengrand.patterns.command.apis.Spotify;
 
 public class SpotifyOff implements Command{
 
-    private Spotify spotify = new Spotify();
+    private final Spotify spotify = new Spotify();
     private int lastVolume = spotify.getVolume();
 
     @Override

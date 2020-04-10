@@ -2,7 +2,7 @@ package nl.lengrand.patterns.command.apis;
 
 public class Light {
 
-    private String room;
+    private final String room;
 
     public Light(String room){
         this.room = room;

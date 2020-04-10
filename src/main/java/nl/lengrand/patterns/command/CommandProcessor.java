@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CommandProcessor implements Runnable {
 
-    private volatile Queue<Command> queue;
+    private final Queue<Command> queue;
     private final AtomicBoolean running = new AtomicBoolean(true);
 
     public CommandProcessor(Queue queue){
