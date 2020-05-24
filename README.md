@@ -1,6 +1,6 @@
 # Design Patterns
 
-This repository is a bunch of tests I have written while reading [Head First Design Patterns].
+[This repository](https://github.com/jlengrand/design-patterns) is a bunch of tests I have written while reading [Head First Design Patterns].
 
 You'll find simple implementations of some of those Design Patterns, with ideally some doc attached to them.
 
@@ -12,7 +12,7 @@ The easiest is probably to run this in your favourite IDE.
 
 ## Author
 
-Julien Lengrand-Lambert <julien@lengrand.fr>
+* [Julien Lengrand-Lambert](https://github.com/jlengrand)
 
 ## LICENSE
 
