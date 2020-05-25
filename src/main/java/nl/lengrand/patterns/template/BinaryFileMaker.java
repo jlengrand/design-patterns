@@ -6,6 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+
+/**
+ * This file was just created to created the binary report that will be later read.
+ * It is not part of the template method pattern
+ */
 public class BinaryFileMaker {
     public static void main(String[] args) throws IOException {
 

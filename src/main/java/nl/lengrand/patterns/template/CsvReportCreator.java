@@ -8,6 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class extends from the template report creator, only implementing the logic to read a csv file
+ * as input for a report
+ */
 public class CsvReportCreator extends ReportCreator {
 
     @Override

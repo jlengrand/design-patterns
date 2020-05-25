@@ -6,6 +6,12 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+/**
+ * ReportCreator is our abstract template. It contains most of the boilerplate on how to create reports.
+ * Most of the logic should be hidden from the end user (and the implementors). We need each type of report to extend
+ * from ReportCreator so we can know how to read the input files
+ */
 public abstract class ReportCreator {
 
     final void createReport(File filePath) throws IOException {
